@@ -63,8 +63,8 @@ class AppTest {
     void itemizedList() {
         // Setup
         Cart cart = new Cart();
-        Item item1 = new Item("Watch", 2000, true);
-        Item item2 = new Item("Bracelet", 4000, true);
+        Item item1 = new Item("Watch", 2000, false);
+        Item item2 = new Item("Bracelet", 4000, false);
         List<String> result = new LinkedList<>();
         result.add("Watch - x1 $2000");
         result.add("Bracelet - x3 $4000");
