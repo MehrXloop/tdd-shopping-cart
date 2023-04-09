@@ -92,6 +92,23 @@ class AppTest {
         // Assert
         assertEquals(result, cart.itemizedList());
     }
+    //AC 6 Given I have a cart with items, when I remove an item, then I expect the cart to display the updated itemized list.
+    @Test
+    void removeItem() {
+        // Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Watch", 2000, true);
+        Item item2 = new Item("Bracelet", 4000, false);
+        List<String> result = new LinkedList<>();
+        result.add("Bracelet - x3 $4000");
+        // Execute
+        cart.addItem(item1, 1);
+        cart.addItem(item2, 3);
+        cart.removeItem("Watch");
+
+        // Assert
+        assertEquals(result, cart.itemizedList());
+    }
 
 
 }
