@@ -14,4 +14,11 @@ public class Cart {
      totalPrice += item.price * quantity;
      totalQuantity += quantity;
    }
+
+   public  List<String> itemizedList(){
+    return items.stream().map(cartItem ->{
+          return cartItem.item.name + " - x"+cartItem.quantity +" $"+cartItem.item.price;
+    }).toList();
+
+   }
 }
