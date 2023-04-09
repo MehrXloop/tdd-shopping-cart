@@ -17,6 +17,9 @@ public class Cart {
 
    public  List<String> itemizedList(){
     return items.stream().map(cartItem ->{
+        if(cartItem.item.onSale){
+            return cartItem.item.name + " - x"+cartItem.quantity +" $"+cartItem.item.price +" highlighted";
+        }
           return cartItem.item.name + " - x"+cartItem.quantity +" $"+cartItem.item.price;
     }).toList();
 
