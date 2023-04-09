@@ -75,5 +75,23 @@ class AppTest {
         // Assert
         assertEquals(result, cart.itemizedList());
     }
+    //AC 5 Given I have a cart with items that are not on sale, when I add an item that's on sale, I expect to see it highlighted.
+    @Test
+    void onSale() {
+        // Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Watch", 2000, true);
+        Item item2 = new Item("Bracelet", 4000, false);
+        List<String> result = new LinkedList<>();
+        result.add("Watch - x1 $2000 highlighted");
+        result.add("Bracelet - x3 $4000");
+        // Execute
+        cart.addItem(item1, 1);
+        cart.addItem(item2, 3);
+
+        // Assert
+        assertEquals(result, cart.itemizedList());
+    }
+
 
 }
