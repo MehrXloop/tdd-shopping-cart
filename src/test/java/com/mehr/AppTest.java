@@ -36,4 +36,20 @@ class AppTest {
         //Assert
         assertEquals(4000,cart.totalPrice);
      }
+
+     //AC 3 Given I have cart with one item, when I add more of that item, then I expect to see its quantity update on the cart.
+     @Test 
+     void addMultipleItem(){
+        //Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Watch", 2000, true);
+        Item item2 = new Item("Bracelet", 4000, true);
+        //Execute
+        cart.addItem(item1,1);
+        cart.addItem(item2,3);
+        //Assert
+        assertEquals(4,cart.totalQuantity);
+     }
+
+
 }
