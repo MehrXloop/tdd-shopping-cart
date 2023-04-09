@@ -15,6 +15,7 @@ class AppTest {
     void testApp() {
         assertEquals(1, 1);
     }
+
     //AC 1 Given that I a new shopper, when I begin shopping, then I expect my cart to be empty.
     @Test
      void emptylist(){
@@ -22,5 +23,17 @@ class AppTest {
         Cart cart = new Cart();
         //Assert
         assertEquals(0,cart.items.size());
+     }
+     //AC 2 Given I have an empty cart, when I add an Item, then I expect to the price reflect the sum of all the Items in my cart.
+
+     @Test 
+     void addItem(){
+        //Setup
+        Cart cart = new Cart();
+        Item item1 = new Item("Watch", 2000, true);
+        //Execute
+        cart.addItem(item1,2);
+        //Assert
+        assertEquals(4000,cart.totalPrice);
      }
 }
