@@ -14,7 +14,7 @@ public class Cart {
      totalPrice += item.price * quantity;
      totalQuantity += quantity;
    }
-
+   
    public  List<String> itemizedList(){
     return items.stream().map(cartItem ->{
         if(cartItem.item.onSale){
@@ -23,5 +23,9 @@ public class Cart {
           return cartItem.item.name + " - x"+cartItem.quantity +" $"+cartItem.item.price;
     }).toList();
 
+   }
+
+   public void removeItem(String name){
+    items = items.stream().filter(cartItem -> cartItem.item.name != name).toList();
    }
 }
