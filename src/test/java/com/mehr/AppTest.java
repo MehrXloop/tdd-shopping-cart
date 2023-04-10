@@ -109,6 +109,23 @@ class AppTest {
         // Assert
         assertEquals(result, cart.itemizedList());
     }
+     //AC 7 Given I have one item in my cart with a quantity of 3, when I remove one, then I expect the cart to have 2 of that item.
+     @Test
+     void updatingQuantities() {
+         // Setup
+         Cart cart = new Cart();
+         Item item1 = new Item("Watch", 2000, true);
+         Item item2 = new Item("Bracelet", 4000, false);
+         List<String> result = new LinkedList<>();
+         result.add("Watch - x1 $2000 highlighted");
+         result.add("Bracelet - x2 $4000");
+         // Execute
+         cart.addItem(item1, 1);
+         cart.addItem(item2, 3);
+         cart.removeItem("Bracelet");
 
-
+ 
+         // Assert
+         assertEquals(result, cart.itemizedList());
+     }
 }
